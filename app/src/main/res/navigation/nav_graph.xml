@@ -11,12 +11,54 @@
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" >
         <action
-            android:id="@+id/action_onBoardingFragment_to_toBeContinuedFragment"
-            app:destination="@id/toBeContinuedFragment" />
+            android:id="@+id/action_onBoardingFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/toBeContinuedFragment"
         android:name="com.example.mainmedapp.presentation.screen.toBeContinued.ToBeContinuedFragment"
         android:label="fragment_to_be_continued"
         tools:layout="@layout/fragment_to_be_continued" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.mainmedapp.presentation.screen.signIn.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_emailCodeFragment"
+            app:destination="@id/emailCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailCodeFragment"
+        android:name="com.example.mainmedapp.presentation.screen.emailCode.EmailCodeFragment"
+        android:label="fragment_email_code"
+        tools:layout="@layout/fragment_email_code" >
+        <action
+            android:id="@+id/action_emailCodeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_emailCodeFragment_to_createPasswordFragment"
+            app:destination="@id/createPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPasswordFragment"
+        android:name="com.example.mainmedapp.presentation.screen.createPassword.CreatePasswordFragment"
+        android:label="fragment_create_password"
+        tools:layout="@layout/fragment_create_password" >
+        <action
+            android:id="@+id/action_createPasswordFragment_to_createProfileFragment"
+            app:destination="@id/createProfileFragment" />
+        <action
+            android:id="@+id/action_createPasswordFragment_to_toBeContinuedFragment"
+            app:destination="@id/toBeContinuedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createProfileFragment"
+        android:name="com.example.mainmedapp.presentation.screen.createProfile.CreateProfileFragment"
+        android:label="fragment_create_profile"
+        tools:layout="@layout/fragment_create_profile" >
+        <action
+            android:id="@+id/action_createProfileFragment_to_toBeContinuedFragment"
+            app:destination="@id/toBeContinuedFragment" />
+    </fragment>
 </navigation>

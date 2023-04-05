@@ -30,7 +30,7 @@ class OnBoardingFragment : Fragment() {
         //Проверка на то, просмотрен ли уже onBoarding
         if (viewModel.isAlreadySeenUseCase()) {
             this.findNavController()
-                .navigate(R.id.action_onBoardingFragment_to_toBeContinuedFragment)
+                .navigate(R.id.action_onBoardingFragment_to_signInFragment)
         }
         binding = FragmentOnBoardingBinding.inflate(layoutInflater, container, false)
         return binding.root

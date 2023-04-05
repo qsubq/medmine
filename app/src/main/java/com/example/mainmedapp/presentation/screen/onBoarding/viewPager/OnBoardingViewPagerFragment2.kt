@@ -35,7 +35,7 @@ class OnBoardingViewPagerFragment2 : Fragment() {
         //При нажатии на кнопку сохраняется boolean переменная, о том, что onBoarding уже просмотрен и просходит переход на следующий экран
         binding.tvSkip.setOnClickListener {
             viewModel.setIsAlreadySeenOnBoardingUseCase()
-            this.findNavController().navigate(R.id.action_onBoardingFragment_to_toBeContinuedFragment)
+            this.findNavController().navigate(R.id.action_onBoardingFragment_to_signInFragment)
         }
     }
 }

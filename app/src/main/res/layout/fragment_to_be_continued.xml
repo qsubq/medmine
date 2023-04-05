@@ -23,10 +23,9 @@
         android:id="@+id/appCompatImageView5"
         android:layout_width="39dp"
         android:layout_height="39dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="335dp"
-        android:layout_marginEnd="75dp"
         android:background="@drawable/to_be_continued_logo"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/appCompatImageView4"
         app:layout_constraintTop_toTopOf="parent" />
 
