@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -30,9 +31,33 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    //Binding
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
+    //Room
+    def roomVersion = "2.5.1"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-common:$roomVersion"
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    //Retrofit
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    //Navigation
+    def navigationVersion = "2.5.3"
+    implementation "androidx.navigation:navigation-common-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:1.0.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
