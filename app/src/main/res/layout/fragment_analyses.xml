@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.screen.analyses.AnalysesFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="112dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/sf_pro_display_sembold"
+                android:text="Акции и новости"
+                android:textColor="#939396"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView7" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/sf_pro_display_sembold"
+                android:text="Каталог анализов"
+                android:textColor="#939396"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_news" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_catalog"
+                android:layout_width="match_parent"
+                android:layout_height="538dp"
+                android:layout_marginTop="24dp"
+                android:foregroundGravity="center_horizontal"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

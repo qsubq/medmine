@@ -56,8 +56,11 @@ dependencies {
     implementation "androidx.navigation:navigation-common-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
 
+    //SwipeRefreshLayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
     //Picasso
-    implementation "com.squareup.picasso:picasso:1.0.0"
+    implementation "com.squareup.picasso:picasso:2.71828"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

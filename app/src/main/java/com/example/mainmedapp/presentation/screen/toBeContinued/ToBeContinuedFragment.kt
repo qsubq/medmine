@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import com.example.mainmedapp.R
 
 /**
@@ -19,6 +20,13 @@ class ToBeContinuedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.fragment_to_be_continued, container, false)
+    }
+
+    //Костыль для корректного отображения SearchBar'a
+    override fun onResume() {
+        super.onResume()
+        val searchBar = requireActivity().findViewById<AppCompatImageView>(R.id.img_search)
+        searchBar.visibility = View.GONE
     }
 
 }

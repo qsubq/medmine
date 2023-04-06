@@ -1,14 +1,9 @@
 package com.example.mainmedapp.data.remoteDataSource
 
-import com.example.mainmedapp.domain.model.RequestCreateProfileModel
-import com.example.mainmedapp.domain.model.ResponseCreateProfileModel
-import com.example.mainmedapp.domain.model.ResponseSendCodeModel
-import com.example.mainmedapp.domain.model.ResponseSignInModel
+import com.example.mainmedapp.domain.model.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
+
 /**
 Автор: Каргин Максим (участник №3)
 Дата создания: 05.04.2023
@@ -37,5 +32,15 @@ interface MedApi {
         @Header("Authorization") token: String,
         @Body profile: RequestCreateProfileModel
     ): Response<ResponseCreateProfileModel>
+
+    //Функция получения новостей
+    @GET("/api/news")
+    @Headers("Accept: application/json")
+    suspend fun getNews(): Response<List<ResponseGetNewsModel>>
+
+    //Функция получения каталога
+    @GET("/api/catalog")
+    @Headers("Accept: application/json")
+    suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>>
 
 }

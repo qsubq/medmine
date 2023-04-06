@@ -37,7 +37,7 @@ class CreateProfileFragment : Fragment() {
         binding.btnNext.isEnabled = false
         binding.progressBar.visibility = View.GONE
         binding.tvSkip.setOnClickListener {
-            this.findNavController().navigate(R.id.action_createProfileFragment_to_toBeContinuedFragment)
+            this.findNavController().navigate(R.id.action_createProfileFragment_to_containerFragment)
         }
 
         //Паттерн observer на livedata во viewModel
@@ -45,7 +45,7 @@ class CreateProfileFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
             if(response.code() == 200){
                 Toast.makeText(requireContext(), "Профиль успешно создан", Toast.LENGTH_SHORT).show()
-                this.findNavController().navigate(R.id.action_createProfileFragment_to_toBeContinuedFragment)
+                this.findNavController().navigate(R.id.action_createProfileFragment_to_containerFragment)
             }else{
                 ErrorDialog("Ошибка ${response.code()}", response.message()).show(requireActivity().supportFragmentManager, "ErrorDialog")
             }

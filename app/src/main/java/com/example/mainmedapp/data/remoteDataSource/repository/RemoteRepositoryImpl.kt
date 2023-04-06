@@ -1,19 +1,17 @@
 package com.example.mainmedapp.data.remoteDataSource.repository
 
 import com.example.mainmedapp.data.remoteDataSource.Retrofit
-import com.example.mainmedapp.domain.model.RequestCreateProfileModel
-import com.example.mainmedapp.domain.model.ResponseCreateProfileModel
-import com.example.mainmedapp.domain.model.ResponseSendCodeModel
-import com.example.mainmedapp.domain.model.ResponseSignInModel
+import com.example.mainmedapp.domain.model.*
 import com.example.mainmedapp.domain.repository.RemoteRepository
 import retrofit2.Response
+
 /**
 Автор: Каргин Максим (участник №3)
 Дата создания: 05.04.2023
 Назначение: Реализация remote data source репозитория
  */
 
-class RemoteRepositoryImpl :RemoteRepository{
+class RemoteRepositoryImpl : RemoteRepository {
     private val api = Retrofit.api
 
     override suspend fun sendCode(email: String): Response<ResponseSendCodeModel> {
@@ -24,7 +22,18 @@ class RemoteRepositoryImpl :RemoteRepository{
         return api.signIn(email, code)
     }
 
-    override suspend fun createProfile(token:String, profile: RequestCreateProfileModel): Response<ResponseCreateProfileModel> {
-        return api.createProfile(token ,profile)
+    override suspend fun createProfile(
+        token: String,
+        profile: RequestCreateProfileModel
+    ): Response<ResponseCreateProfileModel> {
+        return api.createProfile(token, profile)
+    }
+
+    override suspend fun getNews(): Response<List<ResponseGetNewsModel>> {
+        return api.getNews()
+    }
+
+    override suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>> {
+        return api.getCatalog()
     }
 }

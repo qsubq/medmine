@@ -72,7 +72,7 @@ class CreatePasswordFragment : Fragment() {
         })
 
         binding.tvSkip.setOnClickListener {
-            this.findNavController().navigate(R.id.action_createPasswordFragment_to_toBeContinuedFragment)
+            this.findNavController().navigate(R.id.action_createPasswordFragment_to_containerFragment)
         }
     }
 
