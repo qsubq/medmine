@@ -69,6 +69,9 @@
         <action
             android:id="@+id/action_containerFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_containerFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -77,6 +80,15 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_containerFragment"
+            app:destination="@id/containerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.mainmedapp.presentation.screen.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_containerFragment"
             app:destination="@id/containerFragment" />
     </fragment>
 </navigation>

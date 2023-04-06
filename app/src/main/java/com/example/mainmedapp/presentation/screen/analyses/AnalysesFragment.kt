@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.mainmedapp.R
+import com.example.mainmedapp.data.localDataSource.CartEntity
 import com.example.mainmedapp.databinding.FragmentAnalysesBinding
 import com.example.mainmedapp.presentation.utils.ErrorDialog
+import com.google.android.material.textview.MaterialTextView
 
 /**
 Автор: Каргин Максим (участник №3)
@@ -39,6 +42,10 @@ class AnalysesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val cardView = requireActivity().findViewById<CardView>(R.id.cardViewContainer)
+        cardView.visibility = View.GONE
+
         initRecyclerView()
         observeData()
         getData()
@@ -60,6 +67,8 @@ class AnalysesFragment : Fragment() {
     private fun initRecyclerView() {
         binding.rvNews.adapter = newsAdapter
         binding.rvCatalog.adapter = catalogAdapter
+
+        catalogAdapter.setupParentFragment(this)
     }
 
     //Функция получения данных
@@ -118,6 +127,25 @@ class AnalysesFragment : Fragment() {
                 )
             }
         }
+
+        viewModel.priceLiveData.observe(viewLifecycleOwner){price ->
+            val cardView = requireActivity().findViewById<CardView>(R.id.cardViewContainer)
+            val tvPrice = requireActivity().findViewById<MaterialTextView>(R.id.tv_cart_price)
+            if(price != null){
+                cardView.visibility = View.VISIBLE
+                tvPrice.text = context?.getString(R.string.price, price.toString())
+
+            }else{
+                tvPrice.text = context?.getString(R.string.price, "0")
+                cardView.visibility = View.GONE
+            }
+        }
+    }
+    fun insertItem(item:CartEntity){
+        viewModel.insertItem(item)
+    }
+    fun deleteItem(item:CartEntity){
+        viewModel.deleteItem(item)
     }
 
 }

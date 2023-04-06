@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/main_card_view_catalog"
     android:layout_height="140dp"
     android:layout_gravity="center_horizontal"
     android:layout_marginHorizontal="20dp"
@@ -50,12 +51,17 @@
         android:textColor="@color/black"
         android:textSize="14sp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/btn_filled_add_catalog" />
+        android:fontFamily="@font/sf_pro_display_sembold"
+        android:text="Добавить"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        app:cornerRadius="8dp" />
+
 </androidx.cardview.widget.CardView>

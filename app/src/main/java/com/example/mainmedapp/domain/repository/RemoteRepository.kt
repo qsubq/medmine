@@ -19,4 +19,9 @@ interface RemoteRepository {
 
     suspend fun getNews(): Response<List<ResponseGetNewsModel>>
     suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>>
+
+    suspend fun updateProfile(
+        token: String,
+        profile: RequestUpdateProfileModel
+    ): Response<ResponseCreateProfileModel>
 }

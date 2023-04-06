@@ -43,4 +43,11 @@ interface MedApi {
     @Headers("Accept: application/json")
     suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>>
 
+    @POST("/api/updateProfile")
+    @Headers("Accept: application/json")
+    suspend fun updateProfile(
+        @Header("Authorization") token: String,
+        @Body profile: RequestUpdateProfileModel
+    ): Response<ResponseCreateProfileModel>
+
 }

@@ -36,4 +36,11 @@ class RemoteRepositoryImpl : RemoteRepository {
     override suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>> {
         return api.getCatalog()
     }
+
+    override suspend fun updateProfile(
+        token: String,
+        profile: RequestUpdateProfileModel
+    ): Response<ResponseCreateProfileModel> {
+        return api.updateProfile(token,profile)
+    }
 }

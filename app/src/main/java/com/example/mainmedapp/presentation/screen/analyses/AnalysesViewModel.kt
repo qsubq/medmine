@@ -6,10 +6,10 @@ import android.net.ConnectivityManager
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.mainmedapp.data.localDataSource.CartEntity
 import com.example.mainmedapp.domain.model.ResponseGetCatalogModel
 import com.example.mainmedapp.domain.model.ResponseGetNewsModel
-import com.example.mainmedapp.domain.useCase.GetCatalogUseCase
-import com.example.mainmedapp.domain.useCase.GetNewsUseCase
+import com.example.mainmedapp.domain.useCase.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -23,11 +23,15 @@ class AnalysesViewModel(private val context: Application) : AndroidViewModel(con
     //UseCase
     private val getNewsUseCase = GetNewsUseCase()
     private val getCatalogUseCase = GetCatalogUseCase()
+    private val insertCartItemUseCase = InsertCartItemUseCase(context)
+    private val deleteCartItemUseCase = DeleteCartItemUseCase(context)
+    private val getItemsPriceUseCase = GetItemsPriceUseCase(context)
 
     //LiveData
     var newsLiveData: MutableLiveData<Response<List<ResponseGetNewsModel>>> = MutableLiveData()
     var catalogLiveData: MutableLiveData<Response<List<ResponseGetCatalogModel>>> =
         MutableLiveData()
+    var priceLiveData: MutableLiveData<Int> = MutableLiveData()
     var errorLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
 
@@ -56,6 +60,21 @@ class AnalysesViewModel(private val context: Application) : AndroidViewModel(con
             }
         }
     }
+    fun deleteItem(item:CartEntity){
+        viewModelScope.launch {
+            deleteCartItemUseCase.execute(item)
+            priceLiveData.value = getItemsPriceUseCase.execute()
+        }
+    }
+
+    fun insertItem(item:CartEntity){
+        viewModelScope.launch {
+            insertCartItemUseCase.execute(item)
+            priceLiveData.value = getItemsPriceUseCase.execute()
+        }
+    }
+
+
 
     //Функция проверки онлайн ли устройство
     private fun isOnline(context: Application): Boolean {

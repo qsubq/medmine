@@ -3,6 +3,7 @@ package com.example.mainmedapp.presentation.screen.container
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.mainmedapp.presentation.screen.analyses.AnalysesFragment
+import com.example.mainmedapp.presentation.screen.profile.ProfileFragment
 import com.example.mainmedapp.presentation.screen.toBeContinued.ToBeContinuedFragment
 
 /**
@@ -21,7 +22,7 @@ class ViewPagerAnalysesAdapter(fragment: Fragment) : FragmentStateAdapter(fragme
             0 -> AnalysesFragment()
             1 -> ToBeContinuedFragment()
             2 -> ToBeContinuedFragment()
-            else -> ToBeContinuedFragment()
+            else -> ProfileFragment()
         }
     }
 }

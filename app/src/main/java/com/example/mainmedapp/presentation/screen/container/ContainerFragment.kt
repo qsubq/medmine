@@ -73,6 +73,10 @@ class ContainerFragment : Fragment() {
         binding.imgSearch.setOnClickListener {
             this.findNavController().navigate(R.id.action_containerFragment_to_searchFragment)
         }
+
+        binding.cardViewBtnAdd.setOnClickListener {
+            this.findNavController().navigate(R.id.action_containerFragment_to_cartFragment)
+        }
     }
 
 }

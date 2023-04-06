@@ -1,5 +1,7 @@
 package com.example.mainmedapp.domain.repository
 
+import com.example.mainmedapp.data.localDataSource.CartEntity
+
 
 /**
     Автор: Каргин Максим (участник №3)
@@ -10,4 +12,10 @@ package com.example.mainmedapp.domain.repository
 interface LocalRepository {
     fun isAlreadySeenOnBoarding():Boolean
     fun setIsAlreadySeenOnBoarding():Boolean
+
+    suspend fun insertCartItem(item:CartEntity)
+    suspend fun deleteCartItem(item: CartEntity)
+    suspend fun getAllItems():List<CartEntity>
+    suspend fun getItemsPrice():Int
+    suspend fun deleteAll()
 }

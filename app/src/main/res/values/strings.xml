@@ -5,4 +5,5 @@
 
     <string name="send_code_again">Отправить код повторно можно будет через %1$s секунд</string>
     <string name="price">%1$s ₽</string>
+    <string name="patient">%1$s пациент</string>
 </resources>
