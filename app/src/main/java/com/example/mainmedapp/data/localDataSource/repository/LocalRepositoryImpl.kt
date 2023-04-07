@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import com.example.mainmedapp.data.localDataSource.CartEntity
 import com.example.mainmedapp.data.localDataSource.MedDataBase
+import com.example.mainmedapp.data.localDataSource.PatientEntity
 import com.example.mainmedapp.domain.repository.LocalRepository
 
 /**
@@ -16,6 +17,7 @@ import com.example.mainmedapp.domain.repository.LocalRepository
 class LocalRepositoryImpl(private val context: Application):LocalRepository {
 
     private val isAlreadySeenSharedPreferences = context.getSharedPreferences("isAlready", MODE_PRIVATE)
+    private val tokenAndPasswordSharedPreferences = context.getSharedPreferences("tokenAndPassword", MODE_PRIVATE)
     private val dao = MedDataBase.getInstance(context).getDao()
     override fun isAlreadySeenOnBoarding(): Boolean {
         return isAlreadySeenSharedPreferences.getBoolean("isAlreadySeenOnBoardingFragment", false)
@@ -24,6 +26,10 @@ class LocalRepositoryImpl(private val context: Application):LocalRepository {
     override fun setIsAlreadySeenOnBoarding(): Boolean {
         isAlreadySeenSharedPreferences.edit().putBoolean("isAlreadySeenOnBoardingFragment", true).apply()
         return true
+    }
+
+    override fun getToken(): String? {
+        return tokenAndPasswordSharedPreferences.getString("token", "")
     }
 
     override suspend fun insertCartItem(item: CartEntity) {

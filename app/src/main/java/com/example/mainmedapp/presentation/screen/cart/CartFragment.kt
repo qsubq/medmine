@@ -56,6 +56,9 @@ class CartFragment : Fragment() {
                 binding.tvPriceInCart.text = getString(R.string.price, "0")
             }
         }
+        binding.btnNext.setOnClickListener {
+            this.findNavController().navigate(R.id.action_cartFragment_to_makeOrderFragment)
+        }
     }
     fun insertItem(item: CartEntity){
         viewModel.insertItem(item)

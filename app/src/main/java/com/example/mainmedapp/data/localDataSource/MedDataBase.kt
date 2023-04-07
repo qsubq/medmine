@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+
 @Database(version = 1, entities = [CartEntity::class])
 abstract class MedDataBase:RoomDatabase() {
     abstract fun getDao():Dao

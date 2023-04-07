@@ -43,11 +43,21 @@ interface MedApi {
     @Headers("Accept: application/json")
     suspend fun getCatalog(): Response<List<ResponseGetCatalogModel>>
 
+    //Функция обновления профиля
     @POST("/api/updateProfile")
     @Headers("Accept: application/json")
     suspend fun updateProfile(
         @Header("Authorization") token: String,
         @Body profile: RequestUpdateProfileModel
     ): Response<ResponseCreateProfileModel>
+
+
+    //Функция создания заказа
+    @POST("/api/order")
+    @Headers("Accept: application/json")
+    suspend fun createOrder(
+        @Header("Authorization") token: String,
+        @Body order: RequestCreateOrderModel
+    ): Response<ResponseCreateOrderModel>
 
 }

@@ -3,6 +3,12 @@ package com.example.mainmedapp.data.localDataSource
 import androidx.room.*
 import androidx.room.Dao
 
+/**
+Автор: Каргин Максим (участник №3)
+Дата создания: 06.04.2023
+Назначение: Doa для общения с Room
+ */
+
 @Dao
 interface Dao {
 

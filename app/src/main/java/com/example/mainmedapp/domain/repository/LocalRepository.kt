@@ -1,6 +1,7 @@
 package com.example.mainmedapp.domain.repository
 
 import com.example.mainmedapp.data.localDataSource.CartEntity
+import com.example.mainmedapp.data.localDataSource.PatientEntity
 
 
 /**
@@ -12,6 +13,7 @@ import com.example.mainmedapp.data.localDataSource.CartEntity
 interface LocalRepository {
     fun isAlreadySeenOnBoarding():Boolean
     fun setIsAlreadySeenOnBoarding():Boolean
+    fun getToken():String?
 
     suspend fun insertCartItem(item:CartEntity)
     suspend fun deleteCartItem(item: CartEntity)

@@ -90,5 +90,38 @@
         <action
             android:id="@+id/action_cartFragment_to_containerFragment"
             app:destination="@id/containerFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_makeOrderFragment"
+            app:destination="@id/makeOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeOrderFragment"
+        android:name="com.example.mainmedapp.presentation.screen.makeOrder.MakeOrderFragment"
+        android:label="fragment_make_order"
+        tools:layout="@layout/fragment_make_order" >
+        <action
+            android:id="@+id/action_makeOrderFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_makeOrderFragment_to_successOrderFragment"
+            app:destination="@id/successOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successOrderFragment"
+        android:name="com.example.mainmedapp.presentation.screen.successOrder.SuccessOrderFragment"
+        android:label="fragment_success_order"
+        tools:layout="@layout/fragment_success_order" >
+        <action
+            android:id="@+id/action_successOrderFragment_to_finalOrderFragment"
+            app:destination="@id/finalOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalOrderFragment"
+        android:name="com.example.mainmedapp.presentation.screen.finalOrderScreen.FinalOrderFragment"
+        android:label="fragment_f_inal_order"
+        tools:layout="@layout/fragment_f_inal_order" >
+        <action
+            android:id="@+id/action_finalOrderFragment_to_containerFragment"
+            app:destination="@id/containerFragment" />
     </fragment>
 </navigation>

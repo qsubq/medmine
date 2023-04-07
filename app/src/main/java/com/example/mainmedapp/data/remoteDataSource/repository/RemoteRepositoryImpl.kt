@@ -43,4 +43,11 @@ class RemoteRepositoryImpl : RemoteRepository {
     ): Response<ResponseCreateProfileModel> {
         return api.updateProfile(token,profile)
     }
+
+    override suspend fun createOrder(
+        token: String,
+        order: RequestCreateOrderModel
+    ): Response<ResponseCreateOrderModel> {
+        return api.createOrder(token, order)
+    }
 }

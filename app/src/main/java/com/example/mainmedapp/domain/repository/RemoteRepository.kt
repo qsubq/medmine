@@ -24,4 +24,9 @@ interface RemoteRepository {
         token: String,
         profile: RequestUpdateProfileModel
     ): Response<ResponseCreateProfileModel>
+
+    suspend fun createOrder(
+        token:String,
+        order:RequestCreateOrderModel
+    ):Response<ResponseCreateOrderModel>
 }
